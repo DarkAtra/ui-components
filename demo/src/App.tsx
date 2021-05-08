@@ -46,6 +46,32 @@ function App() {
             </div>
 
             <div>
+                <h4>
+                    Button variants
+                </h4>
+                <UiFlex gap={".5rem"} wrap={true}>
+                    {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
+                        <UiButton key={themeColor} themeColor={themeColor}>
+                            {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
+                        </UiButton>
+                    ))}
+                </UiFlex>
+            </div>
+
+            <div>
+                <h4>
+                    Button variants with outline
+                </h4>
+                <UiFlex gap={".5rem"} wrap={true}>
+                    {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
+                        <UiButton key={themeColor} themeColor={themeColor} outline={true}>
+                            {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
+                        </UiButton>
+                    ))}
+                </UiFlex>
+            </div>
+
+            <div>
                 <UiButton themeColor={{xs: ThemeColor.INFO, lg: ThemeColor.PRIMARY}}>
                     <div slot={"prefix"}>🌷</div>
                     Button with Flowers
