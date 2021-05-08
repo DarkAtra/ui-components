@@ -24,20 +24,26 @@ function App() {
     return (
         <UiFlex direction={"top-to-bottom"} alignItems={"stretch"} gap={"2rem"} style={pageStyles}>
 
-            <UiGrid columns={2} style={{...gridStyles, minHeight: "200px"}}>
-                <UiGridItem style={gridItemStyles}>
-                    <div style={gridItemContentStyles}>Normal alignment</div>
-                </UiGridItem>
-                <UiGridItem hAlignContent={"center"} style={gridItemStyles}>
-                    <div style={gridItemContentStyles}>Centered horizontally</div>
-                </UiGridItem>
-                <UiGridItem vAlignContent={"center"} style={gridItemStyles}>
-                    <div style={gridItemContentStyles}>Centered vertically</div>
-                </UiGridItem>
-                <UiGridItem hAlignContent={"center"} vAlignContent={"center"} style={gridItemStyles}>
-                    <div style={gridItemContentStyles}>Centered both</div>
-                </UiGridItem>
-            </UiGrid>
+            <div>
+                <h4>
+                    A two column grid with a 1px gap between items and a min height of 200px. The content of the grid items is centered vertically and/or
+                    horizontally.
+                </h4>
+                <UiGrid columns={2} gap={"1px"} style={{...gridStyles, minHeight: "200px"}}>
+                    <UiGridItem style={gridItemStyles}>
+                        <div style={gridItemContentStyles}>Normal alignment</div>
+                    </UiGridItem>
+                    <UiGridItem hAlignContent={"center"} style={gridItemStyles}>
+                        <div style={gridItemContentStyles}>Centered horizontally</div>
+                    </UiGridItem>
+                    <UiGridItem vAlignContent={"center"} style={gridItemStyles}>
+                        <div style={gridItemContentStyles}>Centered vertically</div>
+                    </UiGridItem>
+                    <UiGridItem hAlignContent={"center"} vAlignContent={"center"} style={gridItemStyles}>
+                        <div style={gridItemContentStyles}>Centered both</div>
+                    </UiGridItem>
+                </UiGrid>
+            </div>
 
             <div>
                 <UiButton themeColor={{xs: ThemeColor.INFO, lg: ThemeColor.PRIMARY}}>
