@@ -8,6 +8,10 @@ $button-border-radius: .375rem;
 $button-prefix-suffix-gap: .375rem;
 $outline-css-variable-name: outline;
 
+:host {
+    display: contents;
+}
+
 .button {
     display: inline-flex;
     align-items: center;

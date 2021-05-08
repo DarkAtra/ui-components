@@ -4,7 +4,6 @@ import {mapKeys, mapValues} from "../../utils/Common";
 
 export type FlexAlignItems = "start" | "center" | "end" | "stretch";
 export type FlexDirection = "left-to-right" | "right-to-left" | "top-to-bottom" | "bottom-to-top";
-export type FlexGap = { horizontal: string, vertical: string } | string;
 
 const alignItemsToCssValueMap: { [key in FlexAlignItems]: string } = {
     "start": "flex-start",
@@ -30,29 +29,29 @@ export class UiFlex {
     /**
      * The direction all items in the flex container are distributed.
      */
-    @Prop() direction: BreakpointAwareValue<FlexDirection> = "left-to-right";
+    @Prop() direction?: BreakpointAwareValue<FlexDirection> = "left-to-right";
 
     /**
      * The alignment of all items in the flex container.
      */
-    @Prop() alignItems: BreakpointAwareValue<FlexAlignItems> = "start";
+    @Prop() alignItems?: BreakpointAwareValue<FlexAlignItems> = "start";
 
     /**
      * Whether or not the container should take all the available space or not.
      * - false takes all the available space
      * - true takes only as much space as is required
      */
-    @Prop() inline: BreakpointAwareValue<boolean> = false;
+    @Prop() inline?: BreakpointAwareValue<boolean> = false;
 
     /**
      * Defines the width and height the gap between items in the flex container.
      */
-    @Prop() gap: BreakpointAwareValue<FlexGap> = "0";
+    @Prop() gap?: BreakpointAwareValue<string> = "0";
 
     /**
      * Whether or not the container should wrap it's items to the next line when not enough space is available.
      */
-    @Prop() wrap: BreakpointAwareValue<boolean> = false;
+    @Prop() wrap?: BreakpointAwareValue<boolean> = false;
 
     render() {
         return (

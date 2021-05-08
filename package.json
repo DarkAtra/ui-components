@@ -16,7 +16,7 @@
     ],
     "scripts": {
         "build": "stencil build --docs",
-        "start": "stencil build --dev --watch --serve",
+        "start": "stencil build --docs --watch",
         "test": "stencil test --spec --e2e",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "generate": "stencil generate"
@@ -26,6 +26,7 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "@stencil/react-output-target": "0.0.9",
         "@stencil/sass": "^1.4.1"
     }
 }
