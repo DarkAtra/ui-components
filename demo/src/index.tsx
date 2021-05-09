@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import {defineCustomElements} from "ui-components";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {defineCustomElements} from 'ui-components';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
         <App/>
     </React.StrictMode>,
-    document.getElementById("root")
+    document.getElementById('root')
 );
 
 defineCustomElements();

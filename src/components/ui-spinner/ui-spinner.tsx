@@ -1,10 +1,10 @@
-import {Component, h, Host, Prop} from "@stencil/core";
-import {BreakpointAwareValue, getValuePerBreakpointAndFillGaps} from "../../utils/Breakpoint";
-import {getThemeColorRgbaStyles, ThemeColor} from "../../utils/ThemeColor";
+import {Component, h, Host, Prop} from '@stencil/core';
+import {BreakpointAwareValue, getValuePerBreakpointAndFillGaps} from '../../utils/Breakpoint';
+import {getThemeColorRgbaStyles, ThemeColor} from '../../utils/ThemeColor';
 
 @Component({
-    tag: "ui-spinner",
-    styleUrl: "ui-spinner.scss",
+    tag: 'ui-spinner',
+    styleUrl: 'ui-spinner.scss',
     shadow: true
 })
 export class UiSpinner {

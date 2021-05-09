@@ -1,83 +1,91 @@
 name: CI
 
 on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-    build:
-        name: Build
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [ 12, 14 ]
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v2
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12, 14 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            -   name: Use Node ${{ matrix.node-version }}
-                uses: actions/setup-node@v2
-                with:
-                    node-version: ${{ matrix.node-version }}
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-            -   name: Install Dependencies
-                run: npm ci
-                env:
-                    CI: true
+      - name: Install Dependencies
+        run: npm ci
+        env:
+          CI: true
 
-            #      - name: Test
-            #        run: npm test
-            #        env:
-            #          CI: true
+      #      - name: Test
+      #        run: npm test
+      #        env:
+      #          CI: true
 
-            -   name: Build
-                run: npm run build
-                env:
-                    CI: true
+      - name: Build
+        run: npm run build
+        env:
+          CI: true
 
-            -   name: Install Dependencies for Demo Project
-                if: matrix.node-version == 14
-                run: npm ci -C demo
-                env:
-                    CI: true
+      - name: Debug
+        run: ls -al
+        working-directory: demo
 
-            -   name: Build Demo Project
-                if: matrix.node-version == 14
-                run: npm run build -C demo
-                env:
-                    CI: true
+      - name: Install Dependencies for Demo Project
+        if: matrix.node-version == 14
+        run: npm ci -C demo
+        env:
+          CI: true
 
-            -   name: Upload Documentation Artifact
-                if: matrix.node-version == 14
-                uses: actions/upload-artifact@v2
-                with:
-                    name: documentation
-                    path: demo/build
+      - name: Debug
+        run: ls -al
+        working-directory: demo
 
-    update-github-pages:
-        needs: build
-        name: Update Github Pages
-        runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/main'
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v2
+      - name: Build Demo Project
+        if: matrix.node-version == 14
+        run: npm run build -C demo
+        env:
+          CI: true
 
-            -   name: Delete existing Documentation
-                run: find docs ! -name '_config.yml' -type f -exec rm -f {} +
+      - name: Upload Documentation Artifact
+        if: matrix.node-version == 14
+        uses: actions/upload-artifact@v2
+        with:
+          name: documentation
+          path: demo/build
 
-            -   name: Download Documentation Artifact
-                uses: actions/download-artifact@v2
-                with:
-                    name: documentation
-                    path: docs
+  update-github-pages:
+    needs: build
+    name: Update Github Pages
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            -   name: Commit and Push Changes
-                run: |
-                    git config user.name github-actions
-                    git config user.email github-actions@github.com
-                    git add .
-                    git diff-index --quiet HEAD || git commit -m "Update Documentation"
-                    git push
+      - name: Delete existing Documentation
+        run: find docs ! -name '_config.yml' -type f -exec rm -f {} +
+
+      - name: Download Documentation Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: documentation
+          path: docs
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Update Documentation"
+          git push

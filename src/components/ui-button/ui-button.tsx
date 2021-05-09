@@ -1,13 +1,13 @@
-import {Component, Element, h, Prop} from "@stencil/core";
-import {BreakpointAwareValue, getValuePerBreakpointAndFillGaps, withBreakpointSuffix} from "../../utils/Breakpoint";
-import {getThemeColorRgbaStyles, ThemeColor} from "../../utils/ThemeColor";
-import {getSizeMultiplier, Size} from "../../utils/Size";
-import {classes, mapKeys, mapValues} from "../../utils/Common";
-import {HTMLStencilElement} from "@stencil/core/internal";
+import {Component, Element, h, Prop} from '@stencil/core';
+import {HTMLStencilElement} from '@stencil/core/internal';
+import {BreakpointAwareValue, getValuePerBreakpointAndFillGaps, withBreakpointSuffix} from '../../utils/Breakpoint';
+import {classes, mapKeys, mapValues} from '../../utils/Common';
+import {getSizeMultiplier, Size} from '../../utils/Size';
+import {getThemeColorRgbaStyles, ThemeColor} from '../../utils/ThemeColor';
 
 @Component({
-    tag: "ui-button",
-    styleUrl: "ui-button.scss",
+    tag: 'ui-button',
+    styleUrl: 'ui-button.scss',
     shadow: true
 })
 export class UiButton {
@@ -43,32 +43,32 @@ export class UiButton {
     private hasSuffix: boolean = false;
 
     componentWillLoad() {
-        this.hasPrefix = !!this.hostElement.querySelector("[slot='prefix']");
-        this.hasSuffix = !!this.hostElement.querySelector("[slot='suffix']");
+        this.hasPrefix = !!this.hostElement.querySelector('[slot=\'prefix\']');
+        this.hasSuffix = !!this.hostElement.querySelector('[slot=\'suffix\']');
     }
 
     render() {
-        const Tag = this.href ? (this.disabled ? "span" : "a") : "button";
+        const Tag = this.href ? (this.disabled ? 'span' : 'a') : 'button';
         const style = {
             ...getThemeColorRgbaStyles(getValuePerBreakpointAndFillGaps(this.themeColor, ThemeColor.PRIMARY)),
             ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.size, Size.NORMAL), v => getSizeMultiplier(v)),
-                key => withBreakpointSuffix("--size", key)),
+                key => withBreakpointSuffix('--size', key)),
             ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.outline, false), v => v ? 1 : 0),
-                key => withBreakpointSuffix("--outline", key))
+                key => withBreakpointSuffix('--outline', key))
         };
         return (
-            <Tag class={classes("button", this.disabled ? "disabled" : null)} style={style} disabled={this.disabled} href={this.href} tabIndex={0}>
+            <Tag class={classes('button', this.disabled ? 'disabled' : null)} style={style} disabled={this.disabled} href={this.href} tabIndex={0}>
                 {this.hasPrefix ? (
-                    <div class={"prefix"}>
-                        <slot name={"prefix"}/>
+                    <div class={'prefix'}>
+                        <slot name={'prefix'}/>
                     </div>
                 ) : null}
-                <div class={"content"}>
+                <div class={'content'}>
                     <slot/>
                 </div>
                 {this.hasSuffix ? (
-                    <div class={"suffix"}>
-                        <slot name={"suffix"}/>
+                    <div class={'suffix'}>
+                        <slot name={'suffix'}/>
                     </div>
                 ) : null}
             </Tag>

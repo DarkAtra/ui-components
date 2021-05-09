@@ -1,7 +1,7 @@
 export enum Size {
-    SMALL = "SMALL",
-    NORMAL = "NORMAL",
-    LARGE = "LARGE"
+    SMALL = 'SMALL',
+    NORMAL = 'NORMAL',
+    LARGE = 'LARGE'
 }
 
 export const getSizeMultiplier: (size: Size) => number = (size) => {

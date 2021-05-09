@@ -1,4 +1,4 @@
-export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
+export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 /**
  * An example for {@link BreakpointAwareValue}:
@@ -21,7 +21,7 @@ export const getBreakpointAwareValue = <T>(breakpoint: Breakpoint, value: Breakp
     if (value === null) {
         return null;
     } else if (!(value instanceof Object)) {
-        return breakpoint === "xs" ? value as T : null;
+        return breakpoint === 'xs' ? value as T : null;
     } else {
         return (value as { [key in Breakpoint]?: T })[breakpoint] as T ?? null;
     }
@@ -34,11 +34,11 @@ export const getBreakpointAwareValue = <T>(breakpoint: Breakpoint, value: Breakp
  */
 export const getValuePerBreakpoint = <T>(value: BreakpointAwareValue<T> | null) => {
     return {
-        xs: getBreakpointAwareValue("xs", value),
-        sm: getBreakpointAwareValue("sm", value),
-        md: getBreakpointAwareValue("md", value),
-        lg: getBreakpointAwareValue("lg", value),
-        xl: getBreakpointAwareValue("xl", value)
+        xs: getBreakpointAwareValue('xs', value),
+        sm: getBreakpointAwareValue('sm', value),
+        md: getBreakpointAwareValue('md', value),
+        lg: getBreakpointAwareValue('lg', value),
+        xl: getBreakpointAwareValue('xl', value)
     } as { [key in Breakpoint]: T | null };
 };
 
@@ -53,11 +53,11 @@ export const getValuePerBreakpointAndFillGaps = <T>(value: BreakpointAwareValue<
     const _valueByBreakpoint = getValuePerBreakpoint(value);
     let prevValue = fallback;
     return {
-        xs: prevValue = getBreakpointAwareValue("xs", _valueByBreakpoint) ?? prevValue,
-        sm: prevValue = getBreakpointAwareValue("sm", _valueByBreakpoint) ?? prevValue,
-        md: prevValue = getBreakpointAwareValue("md", _valueByBreakpoint) ?? prevValue,
-        lg: prevValue = getBreakpointAwareValue("lg", _valueByBreakpoint) ?? prevValue,
-        xl: getBreakpointAwareValue("xl", _valueByBreakpoint) ?? prevValue
+        xs: prevValue = getBreakpointAwareValue('xs', _valueByBreakpoint) ?? prevValue,
+        sm: prevValue = getBreakpointAwareValue('sm', _valueByBreakpoint) ?? prevValue,
+        md: prevValue = getBreakpointAwareValue('md', _valueByBreakpoint) ?? prevValue,
+        lg: prevValue = getBreakpointAwareValue('lg', _valueByBreakpoint) ?? prevValue,
+        xl: getBreakpointAwareValue('xl', _valueByBreakpoint) ?? prevValue
     } as { [key in Breakpoint]: T };
 };
 

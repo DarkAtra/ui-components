@@ -3,27 +3,27 @@
 @import "src/utils/Flex";
 
 :host {
-    display: flex;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    line-height: $line-height-base;
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: $line-height-base;
 
-    @include breakpoint-aware-css-variable($flex-inline-css-variable-name, flex);
-    @include breakpoint-aware-css-variable($flex-align-items-css-variable-name, normal);
-    @include breakpoint-aware-css-variable($flex-direction-css-variable-name, row);
-    @include breakpoint-aware-css-variable($flex-gap-css-variable-name, 0);
-    @include breakpoint-aware-css-variable($flex-wrap-css-variable-name, 'nowrap');
+  @include breakpoint-aware-css-variable($flex-inline-css-variable-name, flex);
+  @include breakpoint-aware-css-variable($flex-align-items-css-variable-name, normal);
+  @include breakpoint-aware-css-variable($flex-direction-css-variable-name, row);
+  @include breakpoint-aware-css-variable($flex-gap-css-variable-name, 0);
+  @include breakpoint-aware-css-variable($flex-wrap-css-variable-name, 'nowrap');
 
-    @each $breakpoint in map-keys($breakpoints) {
-        $infix: breakpoint-infix($breakpoint);
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint);
 
-        @include breakpoint-up($breakpoint) {
-            display: var(--#{$flex-inline-css-variable-name}#{$infix});
-            align-items: var(--#{$flex-align-items-css-variable-name}#{$infix});
-            flex-direction: var(--#{$flex-direction-css-variable-name}#{$infix});
-            gap: var(--#{$flex-gap-css-variable-name}#{$infix});
-            flex-wrap: var(--#{$flex-wrap-css-variable-name}#{$infix});
-        }
+    @include breakpoint-up($breakpoint) {
+      display: var(--#{$flex-inline-css-variable-name}#{$infix});
+      align-items: var(--#{$flex-align-items-css-variable-name}#{$infix});
+      flex-direction: var(--#{$flex-direction-css-variable-name}#{$infix});
+      gap: var(--#{$flex-gap-css-variable-name}#{$infix});
+      flex-wrap: var(--#{$flex-wrap-css-variable-name}#{$infix});
     }
+  }
 }
