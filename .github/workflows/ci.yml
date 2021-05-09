@@ -45,7 +45,7 @@ jobs:
         working-directory: demo
 
       - name: Install Dependencies for Demo Project
-        if: matrix.node-version == 14
+        if: matrix.node-version == 15
         run: npm ci --prefix demo
         env:
           CI: true
@@ -55,13 +55,13 @@ jobs:
         working-directory: demo
 
       - name: Build Demo Project
-        if: matrix.node-version == 14
+        if: matrix.node-version == 15
         run: npm run build --prefix demo
         env:
           CI: true
 
       - name: Upload Documentation Artifact
-        if: matrix.node-version == 14
+        if: matrix.node-version == 15
         uses: actions/upload-artifact@v2
         with:
           name: documentation
