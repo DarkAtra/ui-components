@@ -1,5 +1,5 @@
 import React from "react";
-import {UiButton, UiFlex, UiGrid, UiGridItem} from "./react/components";
+import {UiAlert, UiButton, UiFlex, UiGrid, UiGridItem, UiSpinner} from "./react/components";
 import {ThemeColor} from "ui-components";
 
 function App() {
@@ -47,6 +47,38 @@ function App() {
 
             <div>
                 <h4>
+                    Alert variants
+                </h4>
+                <UiFlex direction={"top-to-bottom"} alignItems={"stretch"} gap={".5rem"} wrap={true}>
+                    <UiAlert themeColor={ThemeColor.PRIMARY}>
+                        <div slot={"prefix"}>🌷</div>
+                        <div>
+                            <a href={""}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                            labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </div>
+                    </UiAlert>
+                    <UiAlert themeColor={ThemeColor.SECONDARY}>
+                        <div>
+                            <a href={""}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                            labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </div>
+                        <div slot={"suffix"}>🌷</div>
+                    </UiAlert>
+                    {(Object.keys(ThemeColor) as ThemeColor[])
+                        .filter(themeColor => themeColor !== ThemeColor.PRIMARY && themeColor !== ThemeColor.SECONDARY)
+                        .map((themeColor: ThemeColor) => (
+                            <UiAlert key={themeColor} themeColor={themeColor}>
+                                <div>
+                                    <a href={""}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                    labore et dolore magna aliquyam erat, sed diam voluptua.
+                                </div>
+                            </UiAlert>
+                        ))}
+                </UiFlex>
+            </div>
+
+            <div>
+                <h4>
                     Button variants
                 </h4>
                 <UiFlex gap={".5rem"} wrap={true}>
@@ -77,6 +109,17 @@ function App() {
                     Button with Flowers
                     <div slot={"suffix"}>🌷</div>
                 </UiButton>
+            </div>
+
+            <div>
+                <h4>
+                    Spinner variants
+                </h4>
+                <UiFlex gap={".5rem"} wrap={true}>
+                    {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
+                        <UiSpinner key={themeColor} themeColor={themeColor} style={{fontSize: "2rem"}}/>
+                    ))}
+                </UiFlex>
             </div>
         </UiFlex>
     );

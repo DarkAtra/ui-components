@@ -7,10 +7,20 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BreakpointAwareValue } from "./utils/Breakpoint";
 import { ThemeColor } from "./utils/ThemeColor";
+import { FlexAlignItems, FlexDirection } from "./utils/Flex";
 import { Size } from "./utils/Size";
-import { FlexAlignItems, FlexDirection } from "./components/ui-flex/ui-flex";
 import { GridDirection, GridHorizontalAlignContent, GridVerticalAlignContent } from "./components/ui-grid/ui-grid-item/ui-grid-item";
 export namespace Components {
+    interface UiAlert {
+        /**
+          * The alignment of all items in the alert. The alert itself is a flex container.
+         */
+        "alignItems"?: BreakpointAwareValue<FlexAlignItems>;
+        /**
+          * The theme color to be used for this alert.
+         */
+        "themeColor"?: BreakpointAwareValue<ThemeColor>;
+    }
     interface UiButton {
         /**
           * Whether or not this button is disabled.
@@ -69,8 +79,20 @@ export namespace Components {
         "spanRows"?: BreakpointAwareValue<number>;
         "vAlignContent"?: BreakpointAwareValue<GridVerticalAlignContent>;
     }
+    interface UiSpinner {
+        /**
+          * The theme color to be used for this spinner.
+         */
+        "themeColor"?: BreakpointAwareValue<ThemeColor>;
+    }
 }
 declare global {
+    interface HTMLUiAlertElement extends Components.UiAlert, HTMLStencilElement {
+    }
+    var HTMLUiAlertElement: {
+        prototype: HTMLUiAlertElement;
+        new (): HTMLUiAlertElement;
+    };
     interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
     }
     var HTMLUiButtonElement: {
@@ -95,14 +117,32 @@ declare global {
         prototype: HTMLUiGridItemElement;
         new (): HTMLUiGridItemElement;
     };
+    interface HTMLUiSpinnerElement extends Components.UiSpinner, HTMLStencilElement {
+    }
+    var HTMLUiSpinnerElement: {
+        prototype: HTMLUiSpinnerElement;
+        new (): HTMLUiSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
+        "ui-alert": HTMLUiAlertElement;
         "ui-button": HTMLUiButtonElement;
         "ui-flex": HTMLUiFlexElement;
         "ui-grid": HTMLUiGridElement;
         "ui-grid-item": HTMLUiGridItemElement;
+        "ui-spinner": HTMLUiSpinnerElement;
     }
 }
 declare namespace LocalJSX {
+    interface UiAlert {
+        /**
+          * The alignment of all items in the alert. The alert itself is a flex container.
+         */
+        "alignItems"?: BreakpointAwareValue<FlexAlignItems>;
+        /**
+          * The theme color to be used for this alert.
+         */
+        "themeColor"?: BreakpointAwareValue<ThemeColor>;
+    }
     interface UiButton {
         /**
           * Whether or not this button is disabled.
@@ -161,21 +201,31 @@ declare namespace LocalJSX {
         "spanRows"?: BreakpointAwareValue<number>;
         "vAlignContent"?: BreakpointAwareValue<GridVerticalAlignContent>;
     }
+    interface UiSpinner {
+        /**
+          * The theme color to be used for this spinner.
+         */
+        "themeColor"?: BreakpointAwareValue<ThemeColor>;
+    }
     interface IntrinsicElements {
+        "ui-alert": UiAlert;
         "ui-button": UiButton;
         "ui-flex": UiFlex;
         "ui-grid": UiGrid;
         "ui-grid-item": UiGridItem;
+        "ui-spinner": UiSpinner;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ui-alert": LocalJSX.UiAlert & JSXBase.HTMLAttributes<HTMLUiAlertElement>;
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
             "ui-flex": LocalJSX.UiFlex & JSXBase.HTMLAttributes<HTMLUiFlexElement>;
             "ui-grid": LocalJSX.UiGrid & JSXBase.HTMLAttributes<HTMLUiGridElement>;
             "ui-grid-item": LocalJSX.UiGridItem & JSXBase.HTMLAttributes<HTMLUiGridItemElement>;
+            "ui-spinner": LocalJSX.UiSpinner & JSXBase.HTMLAttributes<HTMLUiSpinnerElement>;
         }
     }
 }

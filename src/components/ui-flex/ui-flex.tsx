@@ -1,23 +1,7 @@
 import {Component, h, Host, Prop} from "@stencil/core";
 import {BreakpointAwareValue, getValuePerBreakpointAndFillGaps, withBreakpointSuffix} from "../../utils/Breakpoint";
 import {mapKeys, mapValues} from "../../utils/Common";
-
-export type FlexAlignItems = "start" | "center" | "end" | "stretch";
-export type FlexDirection = "left-to-right" | "right-to-left" | "top-to-bottom" | "bottom-to-top";
-
-const alignItemsToCssValueMap: { [key in FlexAlignItems]: string } = {
-    "start": "flex-start",
-    "center": "center",
-    "end": "flex-end",
-    "stretch": "stretch"
-};
-
-const directionToCssValueMap: { [key in FlexDirection]: string } = {
-    "left-to-right": "row",
-    "right-to-left": "row-reverse",
-    "top-to-bottom": "column",
-    "bottom-to-top": "column-reverse"
-};
+import {ALIGN_ITEMS_TO_CSS_VALUE_MAP, DIRECTION_TO_CSS_VALUE_MAP, FlexAlignItems, FlexDirection} from "../../utils/Flex";
 
 @Component({
     tag: "ui-flex",
@@ -57,12 +41,12 @@ export class UiFlex {
         return (
             <Host style={{
                 ...mapKeys(mapValues<FlexAlignItems, string>(getValuePerBreakpointAndFillGaps<FlexAlignItems>(this.alignItems, "start"),
-                    v => alignItemsToCssValueMap[v]), key => withBreakpointSuffix("--flex-align-items", key)),
+                    v => ALIGN_ITEMS_TO_CSS_VALUE_MAP[v]), key => withBreakpointSuffix("--flex-align-items", key)),
                 ...mapKeys(getValuePerBreakpointAndFillGaps(this.gap, "0"), key => withBreakpointSuffix("--flex-gap", key)),
                 ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.inline, false), v => v ? "inline-flex" : "flex"),
                     key => withBreakpointSuffix("--flex-inline", key)),
                 ...mapKeys(mapValues<FlexDirection, string>(getValuePerBreakpointAndFillGaps<FlexDirection>(this.direction, "left-to-right"),
-                    v => directionToCssValueMap[v]), key => withBreakpointSuffix("--flex-direction", key)),
+                    v => DIRECTION_TO_CSS_VALUE_MAP[v]), key => withBreakpointSuffix("--flex-direction", key)),
                 ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.wrap, false), v => v ? "wrap" : "nowrap"),
                     key => withBreakpointSuffix("--flex-wrap", key))
             }}>

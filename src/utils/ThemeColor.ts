@@ -40,15 +40,15 @@ export const getThemeColorRgba: (themeColor: ThemeColor) => Color = (themeColor)
     }
 };
 
-export const getThemeColorRgbaStyles: (breakpointValues: { [key in Breakpoint]: ThemeColor }) => { [key: string]: Color } = (breakpointValues) => {
+export const getThemeColorRgbaStyles: (breakpointValues: { [key in Breakpoint]: ThemeColor }) => { [key: string]: string } = (breakpointValues) => {
     return {
-        ...mapKeys(mapValues(breakpointValues, v => getThemeColorRgba(v).r),
+        ...mapKeys(mapValues(breakpointValues, v => `${getThemeColorRgba(v).r}`),
             key => withBreakpointSuffix("--theme-color-r", key)),
-        ...mapKeys(mapValues(breakpointValues, v => getThemeColorRgba(v).g),
+        ...mapKeys(mapValues(breakpointValues, v => `${getThemeColorRgba(v).g}`),
             key => withBreakpointSuffix("--theme-color-g", key)),
-        ...mapKeys(mapValues(breakpointValues, v => getThemeColorRgba(v).b),
+        ...mapKeys(mapValues(breakpointValues, v => `${getThemeColorRgba(v).b}`),
             key => withBreakpointSuffix("--theme-color-b", key)),
-        ...mapKeys(mapValues(breakpointValues, v => getThemeColorRgba(v).a),
+        ...mapKeys(mapValues(breakpointValues, v => `${getThemeColorRgba(v).a}`),
             key => withBreakpointSuffix("--theme-color-a", key))
     };
 };
