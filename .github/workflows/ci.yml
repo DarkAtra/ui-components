@@ -38,12 +38,15 @@ jobs:
           CI: true
 
       - name: Debug
+        run: npm --version
+
+      - name: Debug
         run: ls -al
         working-directory: demo
 
       - name: Install Dependencies for Demo Project
         if: matrix.node-version == 14
-        run: npm ci -C demo
+        run: npm ci --prefix demo
         env:
           CI: true
 
@@ -53,7 +56,7 @@ jobs:
 
       - name: Build Demo Project
         if: matrix.node-version == 14
-        run: npm run build -C demo
+        run: npm run build --prefix demo
         env:
           CI: true
 
