@@ -25,10 +25,10 @@ jobs:
             -   name: Setup node_modules Cache
                 uses: actions/cache@v2
                 with:
-                    path: node_modules
-                    key: nodeModules-${{ hashFiles('**/package-lock.json') }}
+                    path: ~/.npm
+                    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                     restore-keys: |
-                        nodeModules-
+                        ${{ runner.os }}-node-
 
             -   name: Install Dependencies
                 run: npm ci
