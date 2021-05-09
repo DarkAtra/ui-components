@@ -53,13 +53,13 @@ function App() {
                     <UiAlert themeColor={ThemeColor.PRIMARY}>
                         <div slot={'prefix'}>🌷</div>
                         <div>
-                            <a href={''}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                            <a href={'.'}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
                             labore et dolore magna aliquyam erat, sed diam voluptua.
                         </div>
                     </UiAlert>
                     <UiAlert themeColor={ThemeColor.SECONDARY}>
                         <div>
-                            <a href={''}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                            <a href={'.'}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
                             labore et dolore magna aliquyam erat, sed diam voluptua.
                         </div>
                         <div slot={'suffix'}>🌷</div>
@@ -69,7 +69,7 @@ function App() {
                         .map((themeColor: ThemeColor) => (
                             <UiAlert key={themeColor} themeColor={themeColor}>
                                 <div>
-                                    <a href={''}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                    <a href={'.'}>Lorem ipsum dolor sit amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
                                     labore et dolore magna aliquyam erat, sed diam voluptua.
                                 </div>
                             </UiAlert>
