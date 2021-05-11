@@ -1,6 +1,6 @@
 import React from 'react';
 import {ThemeColor} from 'ui-components';
-import {UiAlert, UiButton, UiFlex, UiGrid, UiGridItem, UiSpinner} from './react/components';
+import {UiAlert, UiBadge, UiButton, UiFlex, UiGrid, UiGridItem, UiSpinner} from './react/components';
 
 function App() {
 
@@ -74,6 +74,19 @@ function App() {
                                 </div>
                             </UiAlert>
                         ))}
+                </UiFlex>
+            </div>
+
+            <div>
+                <h4>
+                    Badge variants
+                </h4>
+                <UiFlex gap={'.5rem'} wrap={true}>
+                    {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
+                        <UiBadge key={themeColor} themeColor={themeColor}>
+                            {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
+                        </UiBadge>
+                    ))}
                 </UiFlex>
             </div>
 
