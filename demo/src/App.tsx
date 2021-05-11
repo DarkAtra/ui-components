@@ -82,8 +82,39 @@ function App() {
                     Badge variants
                 </h4>
                 <UiFlex gap={'.5rem'} wrap={true}>
+                    <UiBadge themeColor={ThemeColor.PRIMARY} href={'.'}>
+                        {ThemeColor.PRIMARY.charAt(0) + ThemeColor.PRIMARY.substring(1).toLowerCase()}
+                    </UiBadge>
+                    {(Object.keys(ThemeColor) as ThemeColor[])
+                        .filter((themeColor: ThemeColor) => themeColor !== ThemeColor.PRIMARY)
+                        .map((themeColor: ThemeColor) => (
+                            <UiBadge key={themeColor} themeColor={themeColor}>
+                                {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
+                            </UiBadge>
+                        ))}
+                </UiFlex>
+            </div>
+
+            <div>
+                <h4>
+                    Pill Badge variants
+                </h4>
+                <UiFlex gap={'.5rem'} wrap={true}>
                     {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
-                        <UiBadge key={themeColor} themeColor={themeColor}>
+                        <UiBadge key={themeColor} themeColor={themeColor} pill={true}>
+                            {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
+                        </UiBadge>
+                    ))}
+                </UiFlex>
+            </div>
+
+            <div>
+                <h4>
+                    Soft Badge variants
+                </h4>
+                <UiFlex gap={'.5rem'} wrap={true}>
+                    {(Object.keys(ThemeColor) as ThemeColor[]).map((themeColor: ThemeColor) => (
+                        <UiBadge key={themeColor} themeColor={themeColor} soft={true}>
                             {themeColor.charAt(0) + themeColor.substring(1).toLowerCase()}
                         </UiBadge>
                     ))}

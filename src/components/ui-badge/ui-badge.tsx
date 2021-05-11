@@ -30,7 +30,7 @@ export class UiBadge {
         const Tag = this.href ? 'a' : 'div';
         return (
             <Host>
-                <Tag class={'badge'} style={{
+                <Tag class={'badge'} href={this.href} style={{
                     ...getThemeColorRgbaStyles(getValuePerBreakpointAndFillGaps(this.themeColor, ThemeColor.PRIMARY)),
                     ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.soft, false), v => v ? 1 : 0),
                         key => withBreakpointSuffix('--badge-soft', key)),
