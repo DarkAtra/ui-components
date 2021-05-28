@@ -1,32 +1,12 @@
 {
-  "name": "ui-components",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/ui-components/ui-components.esm.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
+  "name": "root",
+  "private": true,
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --docs --watch",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "postinstall": "lerna clean --yes && lerna bootstrap",
+    "build": "lerna run build --stream",
+    "start": "lerna run --scope demo start --stream"
   },
-  "dependencies": {
-    "@stencil/core": "2.5.2"
-  },
-  "license": "MIT",
   "devDependencies": {
-    "@stencil/react-output-target": "0.0.9",
-    "@stencil/sass": "^1.4.1"
+    "lerna": "^4.0.0"
   }
 }

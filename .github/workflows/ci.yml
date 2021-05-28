@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node 15
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: 15
@@ -34,21 +34,11 @@ jobs:
         env:
           CI: true
 
-      - name: Install Dependencies for Demo Project
-        run: npm ci --prefix demo
-        env:
-          CI: true
-
-      - name: Build Demo Project
-        run: npm run build --prefix demo
-        env:
-          CI: true
-
       - name: Upload Documentation Artifact
         uses: actions/upload-artifact@v2
         with:
           name: documentation
-          path: demo/build
+          path: packages/demo/build
 
   update-github-pages:
     needs: build
