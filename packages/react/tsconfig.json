@@ -1,25 +1,26 @@
 {
+  "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
-    "declaration": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
       "dom",
       "es2017"
     ],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h"
+    "outDir": "dist",
+    "removeComments": false,
+    "jsx": "react"
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "node_modules"
+    "**/__tests__/**"
   ]
 }

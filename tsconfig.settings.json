@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true
+  }
+}

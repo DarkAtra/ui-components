@@ -20,7 +20,7 @@ export namespace Components {
         /**
          * The theme color to be used for this alert.
          */
-        "themeColor"?: BreakpointAwareValue<ThemeColor>;
+        'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
     interface UiBadge {
         "href"?: string | null;
