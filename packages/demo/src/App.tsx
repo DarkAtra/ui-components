@@ -1,6 +1,6 @@
 import {ThemeColor} from '@darkatra/ui-components';
 import {UiAlert, UiBadge, UiButton, UiFlex, UiGrid, UiGridItem, UiSpinner} from '@darkatra/ui-components-react';
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 
 function App() {
 
@@ -21,13 +21,6 @@ function App() {
         padding: '10px'
     };
 
-    const ref = useRef<HTMLUiGridElement>(null);
-    useEffect(() => {
-        if (ref.current) {
-            ref.current.columns = {md: 2, xs: 1};
-        }
-    }, [ref]);
-
     return (
         <UiFlex direction={'top-to-bottom'} alignItems={'stretch'} gap={'2rem'} style={pageStyles}>
 
@@ -36,7 +29,7 @@ function App() {
                     A two column grid with a 1px gap between items and a min height of 200px. The content of the grid items is centered vertically and/or
                     horizontally.
                 </h4>
-                <UiGrid ref={ref} gap={'1px'} style={{...gridStyles, minHeight: '200px'}}>
+                <UiGrid columns={{md: 2, xs: 1}} gap={'1px'} style={{...gridStyles, minHeight: '200px'}}>
                     <UiGridItem style={gridItemStyles}>
                         <div style={gridItemContentStyles}>Normal alignment</div>
                     </UiGridItem>
