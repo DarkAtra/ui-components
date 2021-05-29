@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "lerna clean --yes && lerna bootstrap",
     "build": "lerna run build --stream",
-    "start": "lerna run --scope demo start --stream"
+    "start": "lerna run --scope @darkatra/demo start --stream"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
