@@ -148,7 +148,7 @@ function App() {
             </div>
 
             <div>
-                <UiButton themeColor={{xs: ThemeColor.INFO, lg: ThemeColor.PRIMARY}}>
+                <UiButton themeColor={{xs: ThemeColor.INFO, lg: ThemeColor.PRIMARY}} onClick={() => alert('Hello World!')}>
                     <div slot={'prefix'}>🌷</div>
                     Button with Flowers
                     <div slot={'suffix'}>🌷</div>

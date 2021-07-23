@@ -28,15 +28,16 @@ export class UiBadge {
 
     render() {
         const Tag = this.href ? 'a' : 'div';
+        const style = {
+            ...getThemeColorRgbaStyles(getValuePerBreakpointAndFillGaps(this.themeColor, ThemeColor.PRIMARY)),
+            ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.soft, false), v => v ? 1 : 0),
+                key => withBreakpointSuffix('--badge-soft', key)),
+            ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.pill, false), v => v ? 1 : 0),
+                key => withBreakpointSuffix('--badge-pill', key))
+        };
         return (
             <Host>
-                <Tag class={'badge'} href={this.href} style={{
-                    ...getThemeColorRgbaStyles(getValuePerBreakpointAndFillGaps(this.themeColor, ThemeColor.PRIMARY)),
-                    ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.soft, false), v => v ? 1 : 0),
-                        key => withBreakpointSuffix('--badge-soft', key)),
-                    ...mapKeys(mapValues(getValuePerBreakpointAndFillGaps(this.pill, false), v => v ? 1 : 0),
-                        key => withBreakpointSuffix('--badge-pill', key))
-                }}>
+                <Tag class={'badge'} style={style} href={this.href}>
                     {this.hasPrefix ? (
                         <div class={'prefix'}>
                             <slot name={'prefix'}/>
