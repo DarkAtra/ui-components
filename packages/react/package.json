@@ -16,7 +16,8 @@
     "dist/"
   ],
   "dependencies": {
-    "@darkatra/ui-components": "file:../core"
+    "@darkatra/ui-components": "file:../core",
+    "@stencil/react-output-target": "^0.3.1"
   },
   "peerDependencies": {
     "react": "^17.0.2",

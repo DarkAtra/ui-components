@@ -10,6 +10,7 @@
   "dependencies": {
     "@darkatra/ui-components": "file:../core",
     "@darkatra/ui-components-react": "file:../react",
+    "@stencil/react-output-target": "^0.3.1",
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
