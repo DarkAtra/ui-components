@@ -50,7 +50,7 @@ jobs:
         run: find docs ! -name '.gitkeep' -type f -exec rm -f {} +
 
       - name: Download Documentation Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: documentation
           path: docs
