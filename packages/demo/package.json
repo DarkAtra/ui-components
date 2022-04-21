@@ -11,7 +11,7 @@
     "@darkatra/ui-components": "file:../core",
     "@darkatra/ui-components-react": "file:../react",
     "@types/node": "^15.0.2",
-    "@types/react": "^17.0.5",
+    "@types/react": "^18.0.5",
     "@types/react-dom": "^17.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
