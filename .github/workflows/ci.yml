@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-concurrency: ci
-
 jobs:
   build:
     name: Build
