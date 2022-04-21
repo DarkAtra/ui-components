@@ -22,14 +22,12 @@ export namespace Components {
          */
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiBadge {
         'href'?: string | null;
         'pill'?: BreakpointAwareValue<boolean>;
         'soft'?: BreakpointAwareValue<boolean>;
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiButton {
         /**
          * Whether or not this button is disabled.
@@ -52,7 +50,6 @@ export namespace Components {
          */
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiFlex {
         /**
          * The alignment of all items in the flex container.
@@ -75,14 +72,12 @@ export namespace Components {
          */
         'wrap'?: BreakpointAwareValue<boolean>;
     }
-
     interface UiGrid {
         'columns'?: BreakpointAwareValue<number | string>;
         'dense'?: BreakpointAwareValue<boolean>;
         'gap'?: BreakpointAwareValue<string>;
         'inline'?: BreakpointAwareValue<boolean>;
     }
-
     interface UiGridItem {
         'direction'?: BreakpointAwareValue<GridDirection>;
         'hAlignContent'?: BreakpointAwareValue<GridHorizontalAlignContent>;
@@ -91,7 +86,6 @@ export namespace Components {
         'spanRows'?: BreakpointAwareValue<number>;
         'vAlignContent'?: BreakpointAwareValue<GridVerticalAlignContent>;
     }
-
     interface UiSpinner {
         /**
          * The theme color to be used for this spinner.
@@ -102,60 +96,46 @@ export namespace Components {
 declare global {
     interface HTMLUiAlertElement extends Components.UiAlert, HTMLStencilElement {
     }
-
     var HTMLUiAlertElement: {
         prototype: HTMLUiAlertElement;
         new(): HTMLUiAlertElement;
     };
-
     interface HTMLUiBadgeElement extends Components.UiBadge, HTMLStencilElement {
     }
-
     var HTMLUiBadgeElement: {
         prototype: HTMLUiBadgeElement;
         new(): HTMLUiBadgeElement;
     };
-
     interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
     }
-
     var HTMLUiButtonElement: {
         prototype: HTMLUiButtonElement;
         new(): HTMLUiButtonElement;
     };
-
     interface HTMLUiFlexElement extends Components.UiFlex, HTMLStencilElement {
     }
-
     var HTMLUiFlexElement: {
         prototype: HTMLUiFlexElement;
         new(): HTMLUiFlexElement;
     };
-
     interface HTMLUiGridElement extends Components.UiGrid, HTMLStencilElement {
     }
-
     var HTMLUiGridElement: {
         prototype: HTMLUiGridElement;
         new(): HTMLUiGridElement;
     };
-
     interface HTMLUiGridItemElement extends Components.UiGridItem, HTMLStencilElement {
     }
-
     var HTMLUiGridItemElement: {
         prototype: HTMLUiGridItemElement;
         new(): HTMLUiGridItemElement;
     };
-
     interface HTMLUiSpinnerElement extends Components.UiSpinner, HTMLStencilElement {
     }
-
     var HTMLUiSpinnerElement: {
         prototype: HTMLUiSpinnerElement;
         new(): HTMLUiSpinnerElement;
     };
-
     interface HTMLElementTagNameMap {
         'ui-alert': HTMLUiAlertElement;
         'ui-badge': HTMLUiBadgeElement;
@@ -177,14 +157,12 @@ declare namespace LocalJSX {
          */
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiBadge {
         'href'?: string | null;
         'pill'?: BreakpointAwareValue<boolean>;
         'soft'?: BreakpointAwareValue<boolean>;
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiButton {
         /**
          * Whether or not this button is disabled.
@@ -207,7 +185,6 @@ declare namespace LocalJSX {
          */
         'themeColor'?: BreakpointAwareValue<ThemeColor>;
     }
-
     interface UiFlex {
         /**
          * The alignment of all items in the flex container.
@@ -230,14 +207,12 @@ declare namespace LocalJSX {
          */
         'wrap'?: BreakpointAwareValue<boolean>;
     }
-
     interface UiGrid {
         'columns'?: BreakpointAwareValue<number | string>;
         'dense'?: BreakpointAwareValue<boolean>;
         'gap'?: BreakpointAwareValue<string>;
         'inline'?: BreakpointAwareValue<boolean>;
     }
-
     interface UiGridItem {
         'direction'?: BreakpointAwareValue<GridDirection>;
         'hAlignContent'?: BreakpointAwareValue<GridHorizontalAlignContent>;
@@ -246,7 +221,6 @@ declare namespace LocalJSX {
         'spanRows'?: BreakpointAwareValue<number>;
         'vAlignContent'?: BreakpointAwareValue<GridVerticalAlignContent>;
     }
-
     interface UiSpinner {
         /**
          * The theme color to be used for this spinner.
