@@ -51,7 +51,7 @@ export const defineCustomElement = (tagName: string, customElement: any) => {
     ) {
         customElements.define(tagName, customElement);
     }
-};
+}
 
 export * from './attachProps';
 export * from './case';

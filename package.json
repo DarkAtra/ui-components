@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna bootstrap",
+    "postinstall": "lerna clean --yes && lerna bootstrap --hoist --ci",
     "build": "lerna run build --stream",
     "start": "lerna run --scope @darkatra/demo start --stream"
   },
