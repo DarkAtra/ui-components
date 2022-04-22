@@ -11,6 +11,9 @@ on:
       - package-lock.json
       - tsconfig.settings.json
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build
