@@ -22,7 +22,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "2.15.1",
+    "@stencil/core": "2.16.0",
     "@stencil/react-output-target": "^0.3.1"
   },
   "license": "MIT"
