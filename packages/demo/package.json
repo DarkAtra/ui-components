@@ -11,7 +11,7 @@
     "@darkatra/ui-components": "file:../core",
     "@darkatra/ui-components-react": "file:../react",
     "@stencil/react-output-target": "^0.3.1",
-    "@types/node": "^17.0.25",
+    "@types/node": "^18.0.0",
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
     "react": "^18.0.0",
